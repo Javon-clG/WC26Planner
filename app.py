@@ -15,7 +15,15 @@ import uuid
 #
 # If Sheets config isn't present, the app falls back to local CSVs in ./data.
 
-SHEETS_ID = st.secrets.get("WC26_SHEETS_ID", SHEETS_ID)
+SHEETS_ID = NONE
+
+if "WC26_SHEETS_ID" in st.secrets:
+    SHEETS_ID = st.secrets["WC26_SHEETS_ID"]
+    
+if not SHEETS_ID:
+    raise RuntimeError("SHEETS_ID is not configured. Set WC26_SHEETS_ID in Streamlit secrets.")
+
+
 DATA_DIR = "data"
 
 SHEET_TAB_CATALOG = os.getenv("WC26_TAB_CATALOG", "match_catalog")
