@@ -1,0 +1,17 @@
+city_id,city_name,country,stadium_name,timezone,iata_primary,iata_alt
+atlanta,Atlanta,USA,Mercedes-Benz Stadium,America/New_York,ATL,
+boston,Boston,USA,Gillette Stadium,America/New_York,BOS,
+dallas,Dallas,USA,AT&T Stadium,America/Chicago,DFW,DAL
+guadalajara,Guadalajara,Mexico,Guadalajara Stadium,America/Mexico_City,GDL,
+houston,Houston,USA,NRG Stadium,America/Chicago,IAH,HOU
+kansas_city,Kansas City,USA,Arrowhead Stadium,America/Chicago,MCI,
+los_angeles,Los Angeles,USA,SoFi Stadium,America/Los_Angeles,LAX,BUR
+mexico_city,Mexico City,Mexico,Estadio Azteca,America/Mexico_City,MEX,
+miami,Miami,USA,Hard Rock Stadium,America/New_York,MIA,FLL
+monterrey,Monterrey,Mexico,Estadio BBVA,America/Monterrey,MTY,
+ny_nj,New York / New Jersey,USA,MetLife Stadium,America/New_York,EWR,JFK
+philadelphia,Philadelphia,USA,Lincoln Financial Field,America/New_York,PHL,
+sf_bay_area,San Francisco Bay Area,USA,Levi's Stadium,America/Los_Angeles,SFO,SJC
+seattle,Seattle,USA,Lumen Field,America/Los_Angeles,SEA,
+toronto,Toronto,Canada,BMO Field,America/Toronto,YYZ,YTZ
+vancouver,Vancouver,Canada,BC Place,America/Vancouver,YVR,
