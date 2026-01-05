@@ -15,7 +15,7 @@ import uuid
 #
 # If Sheets config isn't present, the app falls back to local CSVs in ./data.
 
-SHEETS_ID = NONE
+SHEETS_ID = None
 
 if "WC26_SHEETS_ID" in st.secrets:
     SHEETS_ID = st.secrets["WC26_SHEETS_ID"]
