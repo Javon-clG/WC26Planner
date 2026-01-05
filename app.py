@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 from typing import List, Optional
 import uuid
+import copy
 
 # ---- Optional Google Sheets backend (Phase 2) ----
 # Uses a Service Account JSON key.
