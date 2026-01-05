@@ -49,9 +49,12 @@ def _gs_client():
     import gspread
     # IMPORTANT: gspread.service_account() defaults to ~/.config/gspread/service_account.json unless a filename is provided.
     # We explicitly honor GOOGLE_APPLICATION_CREDENTIALS so local dev works predictably.
-    if "gcp_service_account" in st.secrets:
-        return gspread.service_account_from_dict(st.secrets["gcp_service_account"])
-    return gspread.service_account()  # local fallback
+    sa = copy.deepcopy(dict(st.secrets["gcp_service_account"]))
+
+    # Normalize private_key (handles both literal "\n" and real newlines)
+    sa["private_key"] = sa["private_key"].replace("\\n", "\n").strip()
+
+    return gspread.service_account_from_dict(sa)
 
 def _ws(tab_name: str):
     sh = _gs_client().open_by_key(SHEETS_ID)
