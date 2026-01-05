@@ -15,7 +15,7 @@ import uuid
 #
 # If Sheets config isn't present, the app falls back to local CSVs in ./data.
 
-SHEETS_ID = os.getenv("WC26_SHEETS_ID", "").strip()
+SHEETS_ID = st.secrets.get("WC26_SHEETS_ID", SHEETS_ID)
 DATA_DIR = "data"
 
 SHEET_TAB_CATALOG = os.getenv("WC26_TAB_CATALOG", "match_catalog")
@@ -41,10 +41,9 @@ def _gs_client():
     import gspread
     # IMPORTANT: gspread.service_account() defaults to ~/.config/gspread/service_account.json unless a filename is provided.
     # We explicitly honor GOOGLE_APPLICATION_CREDENTIALS so local dev works predictably.
-    keyfile = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "").strip()
-    if keyfile:
-        return gspread.service_account(filename=keyfile)
-    return gspread.service_account()
+    if "gcp_service_account" in st.secrets:
+        return gspread.service_account_from_dict(st.secrets["gcp_service_account"])
+    return gspread.service_account()  # local fallback
 
 def _ws(tab_name: str):
     sh = _gs_client().open_by_key(SHEETS_ID)
